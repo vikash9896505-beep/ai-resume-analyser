@@ -77,7 +77,7 @@ uploadBtn.addEventListener("click", async (e) => {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:9000/upload", {
+        const response = await fetch("https://ai-resume-analyser-ba0n.onrender.com/upload", {
             method: "POST",
             body: formData
         });
@@ -181,7 +181,7 @@ downloadBtn.addEventListener("click", () => {
     }
 
     window.open(
-        "http://127.0.0.1:9000/reports/" + pdfPath,
+        https://ai-resume-analyser-ba0n.onrender.com/reports/ + pdfPath,
         "_blank"
     );
 
