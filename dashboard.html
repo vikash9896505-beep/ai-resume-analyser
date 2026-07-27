@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyser</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2><i class="fa-solid fa-robot"></i> AI Resume</h2>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-file-arrow-up"></i>
+                Upload Resume
+            </li>
+
+            <li>
+                <i class="fa-solid fa-chart-column"></i>
+                ATS Score
+            </li>
+
+            <li>
+                <i class="fa-solid fa-laptop-code"></i>
+                Skills
+            </li>
+
+            <li>
+                <i class="fa-solid fa-bullseye"></i>
+                Job Match
+            </li>
+
+            <li id="logoutBtn" style="cursor:pointer;">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <!-- Header -->
+        <div class="header">
+
+            <div>
+
+                <h1>AI Resume Analyser Dashboard</h1>
+
+                <p>Analyse your Resume using Artificial Intelligence</p>
+
+            </div>
+
+            <div class="user">
+
+                <i class="fa-solid fa-user"></i>
+
+                <div>
+
+                    <small>Welcome</small>
+
+                    <h2 id="welcomeUser"></h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Upload + Scores -->
+
+        <div class="cards">
+
+            <div class="card upload-card">
+
+                <h2>📄 Upload Resume</h2>
+
+                <input
+                    type="file"
+                    id="resumeFile"
+                    accept=".pdf">
+
+                <button type="button" id="uploadBtn">
+    Analyse Resume
+</button>
+
+                <p id="message"></p>
+
+            </div>
+
+            <div class="card score-card">
+
+                <h2>📊 ATS Score</h2>
+
+                <div id="atsScore">
+
+                    0 / 100
+
+                </div>
+
+            </div>
+
+            <div class="card score-card">
+
+                <h2>🎯 Job Match</h2>
+
+                <div id="jobMatch">
+
+                    0%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Results -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>💻 Skills Found</h2>
+
+                <div id="skillsList">
+
+                    No Skills Found
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h2>❌ Missing Skills</h2>
+
+                <div id="missingSkills">
+
+                    No Missing Skills
+
+                </div>
+
+            </div>
+
+            <div class="card suggestion-card">
+
+                <h2>💡 AI Suggestions</h2>
+
+                <div id="suggestions">
+
+                    Upload your resume to get suggestions.
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Download -->
+
+        <div class="report-section">
+
+            <button type="button" id="downloadBtn">
+    <i class="fa-solid fa-download"></i>
+    Download Resume Report
+</button>
+        </div>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
