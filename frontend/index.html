@@ -8,55 +8,319 @@
 
 <title>AI Resume Analyser</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/style.css">
 
-</head>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
 
+</head>
+<div id="progressBar"></div>
 <body>
 
-<nav>
+<header>
 
-<h2>🤖 AI Resume</h2>
+<nav class="navbar">
 
-<div>
+<div class="logo">
 
-<a href="#">Home</a>
-<a href="login.html">Login</a>
-<a href="signup.html">Signup</a>
+<i class="ri-ai-generate"></i>
+
+AI Resume Analyser
 
 </div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#how">How it Works</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li>
+
+<a class="signup-btn" href="signup.html">
+
+Signup
+
+</a>
+
+</li>
+
+</ul>
 
 </nav>
 
+</header>
+
 <section class="hero">
 
-<div class="left">
+<div class="hero-left">
 
-<h1>Analyse Your Resume With AI</h1>
+<h1>
+
+Build a Resume That Gets You Hired 🚀
+
+</h1>
 
 <p>
 
-Get ATS Score, AI Suggestions,
-Missing Skills and Job Match
-within seconds.
+Upload your resume and let Artificial Intelligence analyze ATS Score,
+Missing Skills,
+Resume Strength,
+Job Match,
+and Smart Suggestions in seconds.
 
 </p>
 
-<button onclick="location.href='login.html'">
+<div class="hero-buttons">
 
-Get Started →
+<a href="signup.html" class="btn">
+    <li>
+    <button id="themeToggle" class="theme-btn">
+        <i class="ri-moon-line"></i>
+    </button>
+</li>
 
-</button>
+Get Started
+
+</a>
+
+<a href="#features" class="btn2">
+
+Learn More
+
+</a>
 
 </div>
 
-<div class="right">
+<div class="stats">
 
-<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+<div>
+
+<h2>95%</h2>
+
+<p>ATS Accuracy</p>
+
+</div>
+
+<div>
+
+<h2>50K+</h2>
+
+<p>Resumes Analysed</p>
+
+</div>
+
+<div>
+
+<h2>24/7</h2>
+
+<p>AI Available</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="resume-card">
+
+<div class="top">
+
+<div class="circle green"></div>
+
+<div class="circle yellow"></div>
+
+<div class="circle red"></div>
+
+</div>
+
+<h3>Resume Score</h3>
+
+<h1>92%</h1>
+
+<div class="progress">
+
+<div class="fill"></div>
+
+</div>
+
+<ul>
+
+<li>✔ ATS Friendly</li>
+
+<li>✔ Good Formatting</li>
+
+<li>✔ Strong Keywords</li>
+
+<li>⚠ Missing Certifications</li>
+
+<li>⚠ Add More Projects</li>
+
+</ul>
+
+</div>
 
 </div>
 
 </section>
+
+<section id="features" class="features">
+
+<h2>Powerful Features</h2>
+
+<p>
+
+Everything you need to optimize your resume.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="ri-file-search-line"></i>
+
+<h3>ATS Score</h3>
+
+<p>
+
+Know how well your resume performs.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="ri-robot-2-line"></i>
+
+<h3>AI Suggestions</h3>
+
+<p>
+
+Get intelligent improvement tips instantly.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="ri-briefcase-line"></i>
+
+<h3>Job Match</h3>
+
+<p>
+
+Check resume compatibility with jobs.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="ri-lightbulb-line"></i>
+
+<h3>Missing Skills</h3>
+
+<p>
+
+Identify missing technologies & skills.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="how" class="how">
+
+<h2>How It Works</h2>
+
+<div class="steps">
+
+<div class="step">
+
+<h1>1</h1>
+
+<h3>Create Account</h3>
+
+</div>
+
+<div class="step">
+
+<h1>2</h1>
+
+<h3>Upload Resume</h3>
+
+</div>
+
+<div class="step">
+
+<h1>3</h1>
+
+<h3>AI Analysis</h3>
+
+</div>
+
+<div class="step">
+
+<h1>4</h1>
+
+<h3>Download Report</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+
+Ready to Improve Your Resume?
+
+</h2>
+
+<p>
+
+Join thousands of users using AI to land better jobs.
+
+</p>
+
+<a href="signup.html">
+
+Start Free
+
+</a>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 AI Resume Analyser
+
+</p>
+
+</footer>
+
+<script src="js/script.js"></script>
 
 </body>
 

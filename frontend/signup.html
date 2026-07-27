@@ -1,54 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sign Up | AI Resume Analyser</title>
+<title>Create Account | AI Resume Analyser</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/login.css">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
 
 <body>
 
+<div class="background">
+
+<div class="blur one"></div>
+
+<div class="blur two"></div>
+
+</div>
+
+<div class="container">
+
+<div class="left">
+
+<h1>Join AI Resume Analyser 🚀</h1>
+
+<p>
+
+Create your free account and get ATS Score, AI Suggestions,
+Missing Skills and Job Match in seconds.
+
+</p>
+
+<div class="features">
+
+<div>
+
+<i class="ri-user-add-line"></i>
+
+<span>Create Free Account</span>
+
+</div>
+
+<div>
+
+<i class="ri-ai-generate"></i>
+
+<span>AI Resume Analysis</span>
+
+</div>
+
+<div>
+
+<i class="ri-award-line"></i>
+
+<span>Boost ATS Score</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
 <div class="login-box">
 
 <h2>Create Account</h2>
 
+<p>Start your AI journey</p>
+
 <input
 type="text"
 id="name"
-placeholder="Enter Name">
+placeholder="Full Name">
 
 <input
 type="email"
 id="email"
-placeholder="Enter Email">
+placeholder="Email Address">
+
+<div class="password-box"><div class="strength">
+
+<div id="strengthBar"></div>
+
+</div>
+
+<small id="strengthText">
+Password Strength
+</small>
+
+<br><br>
+
+<div class="password-box">
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password">
+
+<i class="ri-eye-line"
+id="toggleConfirm"></i>
+
+</div>
 
 <input
 type="password"
 id="password"
-placeholder="Enter Password">
+placeholder="Password">
+
+<i class="ri-eye-line"
+id="togglePassword"></i>
+
+</div>
 
 <button id="signupBtn">
+
 Create Account
+
 </button>
 
-<p>
+<p class="signup-link">
 
 Already have an account?
 
 <a href="login.html">
+
 Login
+
 </a>
 
 </p>
 
 </div>
 
+</div>
+
+</div>
+
 <script src="js/signup.js"></script>
 
 </body>
+
 </html>

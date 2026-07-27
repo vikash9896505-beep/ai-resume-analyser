@@ -1,46 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | AI Resume Analyser</title>
 
-    <link rel="stylesheet" href="css/login.css">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | AI Resume Analyser</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/login.css">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
 </head>
+
 <body>
+
+<div class="background">
+
+<div class="blur one"></div>
+
+<div class="blur two"></div>
+
+</div>
+
+<div class="container">
+
+<div class="left">
+
+<h1>Welcome Back 👋</h1>
+
+<p>
+
+Login to continue analysing your resume using Artificial Intelligence.
+
+</p>
+
+<div class="features">
+
+<div>
+
+<i class="ri-shield-check-line"></i>
+
+<span>Secure Login</span>
+
+</div>
+
+<div>
+
+<i class="ri-ai-generate"></i>
+
+<span>AI Resume Analysis</span>
+
+</div>
+
+<div>
+
+<i class="ri-bar-chart-box-line"></i>
+
+<span>ATS Score & Job Match</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
 
 <div class="login-box">
 
-    <h1>AI Resume Analyser</h1>
+<h2>Login</h2>
 
-    <h2>Login</h2>
+<p>Access your account</p>
 
-    <input
-        type="email"
-        id="email"
-        placeholder="Enter Email"
-    >
+<input
+type="email"
+id="email"
+placeholder="Email Address">
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Enter Password"
-    >
+<div class="password-box">
 
-    <button id="loginBtn">
-        Login
-    </button>
+<input
+type="password"
+id="password"
+placeholder="Password">
 
-    <p id="message"></p>
+<i class="ri-eye-line" id="togglePassword"></i>
 
-    <p>
-        Don't have an account?
-        <a href="signup.html">Create Account</a>
-    </p>
+</div>
+
+<button id="loginBtn">
+
+Login
+
+</button>
+
+<p class="signup-link">
+
+Don't have an account?
+
+<a href="signup.html">
+
+Create Account
+
+</a>
+
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 <script src="js/login.js"></script>
 
 </body>
+
 </html>

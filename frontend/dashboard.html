@@ -2,193 +2,384 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Resume Analyser</title>
 
-    <link rel="stylesheet" href="css/dashboard.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<title>Dashboard | AI Resume Analyser</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+<div class="sidebar">
 
-        <div class="logo">
-            <h2><i class="fa-solid fa-robot"></i> AI Resume</h2>
-        </div>
+<div class="logo">
 
-        <ul>
+<i class="ri-ai-generate"></i>
 
-            <li class="active">
-                <i class="fa-solid fa-house"></i>
-                Dashboard
-            </li>
+AI Resume
 
-            <li>
-                <i class="fa-solid fa-file-arrow-up"></i>
-                Upload Resume
-            </li>
+</div>
 
-            <li>
-                <i class="fa-solid fa-chart-column"></i>
-                ATS Score
-            </li>
+<ul>
 
-            <li>
-                <i class="fa-solid fa-laptop-code"></i>
-                Skills
-            </li>
+<li class="active">
 
-            <li>
-                <i class="fa-solid fa-bullseye"></i>
-                Job Match
-            </li>
+<i class="ri-dashboard-line"></i>
 
-            <li id="logoutBtn" style="cursor:pointer;">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                Logout
-            </li>
+Dashboard
 
-        </ul>
+</li>
 
-    </div>
+<li>
 
-    <!-- Main -->
-    <div class="main">
+<i class="ri-upload-cloud-line"></i>
 
-        <!-- Header -->
-        <div class="header">
+Upload Resume
 
-            <div>
+</li>
 
-                <h1>AI Resume Analyser Dashboard</h1>
+<li>
 
-                <p>Analyse your Resume using Artificial Intelligence</p>
+<i class="ri-file-chart-line"></i>
 
-            </div>
+Reports
 
-            <div class="user">
+</li>
 
-                <i class="fa-solid fa-user"></i>
+<li>
 
-                <div>
+<i class="ri-user-line"></i>
 
-                    <small>Welcome</small>
+Profile
 
-                    <h2 id="welcomeUser"></h2>
+</li>
 
-                </div>
+<li id="logoutBtn">
 
-            </div>
+<i class="ri-logout-box-line"></i>
 
-        </div>
+Logout
 
-        <!-- Upload + Scores -->
+</li>
 
-        <div class="cards">
+</ul>
 
-            <div class="card upload-card">
+</div>
 
-                <h2>📄 Upload Resume</h2>
+<div class="main">
 
-                <input
-                    type="file"
-                    id="resumeFile"
-                    accept=".pdf">
+<header>
 
-                <button type="button" id="uploadBtn">
-    Analyse Resume
+<div>
+
+<h1>Welcome 👋</h1>
+
+<p id="userName">
+
+Loading...
+
+</p>
+
+</div>
+
+<div class="profile">
+
+<i class="ri-user-3-fill"></i>
+
+</div>
+
+</header>
+
+<section class="cards">
+
+<div class="card">
+
+<h3>ATS Score</h3>
+
+<h1 id="atsScore">
+
+0%
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Job Match</h3>
+
+<h1 id="jobMatch">
+
+0%
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Skills</h3>
+
+<h1 id="skillsCount">
+
+0
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Suggestions</h3>
+
+<h1 id="suggestionsCount">
+
+0
+
+</h1>
+
+</div>
+
+</section><!-- ===========================
+UPLOAD SECTION
+=========================== -->
+
+<section class="upload-section">
+
+<div class="upload-card">
+
+<h2>Upload Resume</h2>
+
+<p>
+Upload your PDF resume and get AI-powered ATS analysis.
+</p>
+
+<div class="upload-box">
+
+<input type="file" id="resumeFile" accept=".pdf">
+
+<label for="resumeFile">
+
+<i class="ri-upload-cloud-2-line"></i>
+
+<h3>Choose Resume (PDF)</h3>
+
+<p>Click here to upload your resume</p>
+
+</label>
+
+</div>
+
+<button id="analyzeBtn">
+
+<i class="ri-ai-generate"></i>
+
+Analyze Resume
+
 </button>
 
-                <p id="message"></p>
+</div>
 
-            </div>
+</section>
 
-            <div class="card score-card">
+<!-- ===========================
+RESULT SECTION
+=========================== -->
 
-                <h2>📊 ATS Score</h2>
+<section class="result-grid">
 
-                <div id="atsScore">
+<!-- Skills -->
 
-                    0 / 100
+<div class="result-card">
 
-                </div>
+<h2>
 
-            </div>
+<i class="ri-code-box-line"></i>
 
-            <div class="card score-card">
+Skills Found
 
-                <h2>🎯 Job Match</h2>
+</h2>
 
-                <div id="jobMatch">
+<ul id="skillsList">
 
-                    0%
+<li>No data yet</li>
 
-                </div>
+</ul>
 
-            </div>
+</div>
 
-        </div>
+<!-- Missing Skills -->
 
-        <!-- Results -->
+<div class="result-card">
 
-        <div class="cards">
+<h2>
 
-            <div class="card">
+<i class="ri-error-warning-line"></i>
 
-                <h2>💻 Skills Found</h2>
+Missing Skills
 
-                <div id="skillsList">
+</h2>
 
-                    No Skills Found
+<ul id="missingSkillsList">
 
-                </div>
+<li>No data yet</li>
 
-            </div>
+</ul>
 
-            <div class="card">
+</div>
 
-                <h2>❌ Missing Skills</h2>
+</section>
 
-                <div id="missingSkills">
+<!-- ===========================
+AI SUGGESTIONS
+=========================== -->
 
-                    No Missing Skills
+<section class="result-card">
 
-                </div>
+<h2>
 
-            </div>
+<i class="ri-robot-2-line"></i>
 
-            <div class="card suggestion-card">
+AI Suggestions
 
-                <h2>💡 AI Suggestions</h2>
+</h2>
 
-                <div id="suggestions">
+<div id="suggestionsList">
 
-                    Upload your resume to get suggestions.
+<p>
 
-                </div>
+Upload your resume to get AI suggestions.
 
-            </div>
+</p>
 
-        </div>
+</div>
 
-        <!-- Download -->
+</section>
 
-        <div class="report-section">
+<!-- ===========================
+DOWNLOAD REPORT
+=========================== -->
 
-            <button type="button" id="downloadBtn">
-    <i class="fa-solid fa-download"></i>
-    Download Resume Report
-</button>
-        </div>
+<section class="download-card">
 
-    </div>
+<h2>
 
-    <script src="js/dashboard.js"></script>
+Download Analysis Report
+
+</h2>
+
+<p>
+
+After analysis you can download your PDF report.
+
+</p>
+
+<a id="downloadReport"
+
+href="#"
+
+target="_blank"
+
+class="download-btn">
+
+<i class="ri-file-pdf-2-fill"></i>
+
+Download PDF Report
+
+</a>
+
+</section><!-- ===========================
+PROFILE SUMMARY
+=========================== -->
+
+<section class="profile-summary">
+
+<div class="profile-card">
+
+<div class="profile-icon">
+<i class="ri-user-3-fill"></i>
+</div>
+
+<div class="profile-info">
+
+<h2 id="profileName">Guest User</h2>
+
+<p id="profileEmail">
+example@email.com
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+FOOTER
+=========================== -->
+
+<footer>
+
+<p>
+
+© 2026 AI Resume Analyser • Built with ❤️ using FastAPI & AI
+
+</p>
+
+</footer>
+
+</div>
+
+<!-- Dashboard JS -->
+<script src="js/dashboard.js"></script>
+
+<script>
+
+// =======================
+// Load User
+// =======================
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+document.getElementById("userName").innerHTML=user.name;
+
+document.getElementById("profileName").innerHTML=user.name;
+
+document.getElementById("profileEmail").innerHTML=user.email;
+
+}
+
+// =======================
+// Logout
+// =======================
+
+document.getElementById("logoutBtn").addEventListener("click",()=>{
+
+if(confirm("Are you sure you want to logout?")){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+});
+
+</script>
 
 </body>
 
