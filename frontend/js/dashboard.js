@@ -1,188 +1,87 @@
+const API = "https://ai-resume-analyser-ba0n.onrender.com";
 
-// ===============================
-// Check Login
-// ===============================
-
+// Login Check
 const user = JSON.parse(localStorage.getItem("user"));
 
 if (!user) {
-    alert("Please Login First");
     window.location.href = "login.html";
 }
 
-// ===============================
 // Welcome User
-// ===============================
+document.getElementById("welcomeUser").innerText =
+    user.name || user.email || "User";
 
-const welcomeUser = document.getElementById("welcomeUser");
-
-if (welcomeUser && user) {
-    welcomeUser.innerHTML = "Welcome, " + user.name;
-}
-
-// ===============================
-// Buttons
-// ===============================
-
-const uploadBtn = document.getElementById("uploadBtn");
-const downloadBtn = document.getElementById("downloadBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-
-let pdfPath = "";
-
-// ===============================
 // Logout
-// ===============================
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem("user");
+    window.location.href = "login.html";
+});
 
-if (logoutBtn) {
-
-    logoutBtn.addEventListener("click", () => {
-
-        localStorage.removeItem("user");
-
-        alert("Logged Out Successfully");
-
-        window.location.href = "login.html";
-
-    });
-
-}
-
-// ===============================
 // Upload Resume
-// ===============================
+document.getElementById("uploadBtn").addEventListener("click", async () => {
 
-uploadBtn.addEventListener("click", async (e) => {
+    const file = document.getElementById("resumeFile").files[0];
 
-    e.preventDefault();
-
-    const fileInput = document.getElementById("resumeFile");
-    const message = document.getElementById("message");
-    const atsScore = document.getElementById("atsScore");
-    const skillsList = document.getElementById("skillsList");
-    const missingSkills = document.getElementById("missingSkills");
-    const suggestions = document.getElementById("suggestions");
-    const jobMatch = document.getElementById("jobMatch");
-
-    if (fileInput.files.length === 0) {
-        alert("Please Select Resume PDF");
+    if (!file) {
+        alert("Please select a PDF Resume");
         return;
     }
 
     const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+    formData.append("file", file);
 
-    message.innerHTML = "⏳ Analysing Resume...";
-    alert("Upload Button Clicked");
+    document.getElementById("message").innerHTML = "Analysing Resume...";
 
     try {
 
-        const response = await fetch("https://ai-resume-analyser-ba0n.onrender.com/upload", {
+        const response = await fetch(API + "/upload", {
             method: "POST",
             body: formData
         });
 
-        if (!response.ok) {
-            throw new Error("Server Error");
-        }
-
         const data = await response.json();
-        
 
+        // ATS
+        document.getElementById("atsScore").innerHTML =
+            data.ats_score + " / 100";
 
-        console.log(data);
-        
-
-        pdfPath = data.pdf;
-
-        message.innerHTML = "✅ Resume Analysed Successfully";
-
-        atsScore.innerHTML = data.ats_score + " / 100";
-
-        jobMatch.innerHTML = data.job_match + "%";
+        // Job Match
+        document.getElementById("jobMatch").innerHTML =
+            data.job_match + "%";
 
         // Skills
-
-        skillsList.innerHTML = "";
-
-        if (data.skills.length > 0) {
-
-            data.skills.forEach(skill => {
-
-                skillsList.innerHTML += "✅ " + skill + "<br>";
-
-            });
-
-        } else {
-
-            skillsList.innerHTML = "No Skills Found";
-
-        }
+        document.getElementById("skillsList").innerHTML =
+            data.skills.length
+                ? data.skills.join("<br>")
+                : "No Skills Found";
 
         // Missing Skills
-
-        missingSkills.innerHTML = "";
-
-        if (data.missing_skills.length > 0) {
-
-            data.missing_skills.forEach(skill => {
-
-                missingSkills.innerHTML += "❌ " + skill + "<br>";
-
-            });
-
-        } else {
-
-            missingSkills.innerHTML = "No Missing Skills";
-
-        }
+        document.getElementById("missingSkills").innerHTML =
+            data.missing_skills.length
+                ? data.missing_skills.join("<br>")
+                : "None";
 
         // Suggestions
+        document.getElementById("suggestions").innerHTML =
+            data.suggestions.length
+                ? data.suggestions.join("<br>")
+                : "No Suggestions";
 
-        suggestions.innerHTML = "";
-        
+        // PDF Download
+        document.getElementById("downloadBtn").onclick = () => {
+            window.open(API + "/reports/" + data.pdf, "_blank");
+        };
 
-        if (data.suggestions.length > 0) {
+        document.getElementById("message").innerHTML =
+            "Resume Analysed Successfully";
 
-            data.suggestions.forEach(item => {
+    } catch (err) {
 
-                suggestions.innerHTML += "💡 " + item + "<br>";
+        console.log(err);
 
-            });
-
-        } else {
-
-            suggestions.innerHTML = "Resume Looks Good";
-
-        }
-
-    } catch (error) {
-
-        console.log(error);
-
-        message.innerHTML = "❌ Failed To Analyse Resume";
+        document.getElementById("message").innerHTML =
+            "Server Error";
 
     }
-
-});
-
-// ===============================
-// Download Report
-// ===============================
-
-downloadBtn.addEventListener("click", () => {
-
-    if (pdfPath === "") {
-
-        alert("Please Analyse Resume First");
-
-        return;
-
-    }
-
-    window.open(
-        https://ai-resume-analyser-ba0n.onrender.com/reports/ + pdfPath,
-        "_blank"
-    );
 
 });

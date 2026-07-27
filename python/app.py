@@ -4,6 +4,7 @@ from fastapi.responses import FileResponse
 import shutil
 import pdfplumber
 import os
+
 from auth import router as auth_router
 from skills import extract_skills, missing_skills
 from ats import calculate_ats_score
@@ -12,6 +13,7 @@ from job_match import calculate_job_match
 from pdf_report import create_pdf_report
 
 app = FastAPI()
+
 app.include_router(auth_router)
 
 # CORS
@@ -49,6 +51,7 @@ async def upload_resume(file: UploadFile = File(...)):
 
     with pdfplumber.open(file_path) as pdf:
         for page in pdf.pages:
+
             page_text = page.extract_text()
 
             if page_text:
@@ -79,10 +82,6 @@ async def upload_resume(file: UploadFile = File(...)):
         suggestions
     )
 
-    # ===============================
-    # DEBUG
-    # ===============================
-
     print("\n========== API RESPONSE ==========")
 
     print({
@@ -97,8 +96,6 @@ async def upload_resume(file: UploadFile = File(...)):
 
     print("=================================\n")
 
-    # ===============================
-
     return {
         "filename": file.filename,
         "ats_score": ats_score,
@@ -107,4 +104,26 @@ async def upload_resume(file: UploadFile = File(...)):
         "suggestions": suggestions,
         "job_match": job_match,
         "pdf": os.path.basename(pdf_path)
+    }
+
+
+# ==========================
+# Download PDF Report
+# ==========================
+
+@app.get("/reports/{filename}")
+def download_report(filename: str):
+
+    file_path = os.path.join("reports", filename)
+
+    if os.path.exists(file_path):
+
+        return FileResponse(
+            path=file_path,
+            media_type="application/pdf",
+            filename=filename
+        )
+
+    return {
+        "error": "File not found"
     }

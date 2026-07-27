@@ -1,38 +1,53 @@
-const loginBtn = document.querySelector("button");
+const loginBtn = document.getElementById("loginBtn");
 
 loginBtn.addEventListener("click", async () => {
 
-    const email = document.querySelector('input[type="email"]').value;
-    const password = document.querySelector('input[type="password"]').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    const response = await fetch("http://127.0.0.1:9000/login", {
+    if (!email || !password) {
+        alert("Please fill all fields");
+        return;
+    }
 
-        method: "POST",
+    try {
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+        const response = await fetch("https://ai-resume-analyser-ba0n.onrender.com/login", {
 
-        body: JSON.stringify({
-            email,
-            password
-        })
+            method: "POST",
 
-    });
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-    const data = await response.json();
+            body: JSON.stringify({
+                email,
+                password
+            })
 
-    if(response.ok){
+        });
 
-        localStorage.setItem("user", JSON.stringify(data));
+        const data = await response.json();
 
-        alert("Login Successful");
+        if (response.ok) {
 
-        window.location.href="dashboard.html";
+            localStorage.setItem("user", JSON.stringify(data));
 
-    }else{
+            alert("Login Successful");
 
-        alert(data.detail);
+            window.location.href = "dashboard.html";
+
+        } else {
+
+            alert(data.detail || "Login Failed");
+
+        }
+
+    } catch (error) {
+
+        alert("Server Error");
+
+        console.log(error);
 
     }
 

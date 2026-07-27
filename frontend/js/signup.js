@@ -13,7 +13,7 @@ signupBtn.addEventListener("click", async () => {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:9000/signup", {
+        const response = await fetch("https://ai-resume-analyser-ba0n.onrender.com/signup", {
 
             method: "POST",
 
@@ -33,13 +33,13 @@ signupBtn.addEventListener("click", async () => {
 
         if (response.ok) {
 
-            alert("Signup Successful");
+            alert("Account Created Successfully!");
 
             window.location.href = "login.html";
 
         } else {
 
-            alert(data.detail || data.message);
+            alert(data.detail || "Signup Failed");
 
         }
 
