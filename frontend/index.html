@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <nav>
@@ -28,13 +30,26 @@
         Skill Analysis, AI Suggestions and Job Match.
     </p>
 
+    <input
+        type="file"
+        id="resume"
+        accept=".pdf"
+    >
+
+    <br><br>
+
     <button id="startBtn">
-        Get Started
+        Analyse Resume
     </button>
+
+    <br><br>
+
+    <div id="result"></div>
 
 </section>
 
 <script src="js/script.js"></script>
 
 </body>
+
 </html>
